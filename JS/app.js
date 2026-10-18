@@ -346,6 +346,22 @@
     onScroll();
     toTop.addEventListener("click", () => scrollTo({ top: 0, behavior: REDUCED ? "auto" : "smooth" }));
 
+    const floatingActions = $(".fab-cluster");
+    const unobscuredSections = new Set();
+    const floatingObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) unobscuredSections.add(entry.target);
+        else unobscuredSections.delete(entry.target);
+      });
+      const obscured = unobscuredSections.size > 0;
+      floatingActions.classList.toggle("is-obscured", obscured);
+      toTop.classList.toggle("is-obscured", obscured);
+    }, { rootMargin: "-8% 0px -8% 0px" });
+    ["top", "service", "contact"].forEach(id => {
+      const section = document.getElementById(id);
+      if (section) floatingObserver.observe(section);
+    });
+
     const links = $$("#navLinks a");
     const map = new Map();
     links.forEach(a => {

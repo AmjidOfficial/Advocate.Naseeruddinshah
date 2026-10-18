@@ -1,8 +1,8 @@
 Add-Type -AssemblyName System.Drawing
 $ErrorActionPreference = "Stop"
 
-$srcDir  = "D:\Naseer Uddin Shah\assets\images"
-$imgDir  = "C:\Users\user\Documents\Qoder\2026-10-17\46eec0ec\assets\img"
+$srcDir  = Join-Path $PSScriptRoot "assets\images"
+$imgDir  = Join-Path $PSScriptRoot "assets\img"
 $gallery = Join-Path $imgDir "gallery"
 New-Item -ItemType Directory -Force -Path $gallery | Out-Null
 

@@ -16,7 +16,8 @@ npx -y http-server -p 8080 -c-1
 python -m http.server 8080
 ```
 
-Then open <http://localhost:8080>. (Opening `index.html` directly also works.)
+Then open <http://localhost:8080>. PWA installation and service-worker features require
+HTTPS or localhost; opening `index.html` directly only runs the page without those features.
 
 ## Deploy
 
@@ -33,24 +34,24 @@ gh repo create AmjidOfficial/chambers-naseer --public --source=. --push
 
 ## Owner checklist — before launch
 
-Everything below lives in **`js/data.js`** (top of the file) or is a one-file drop:
+Everything below lives in **`JS/data.js`** (top of the file) or is a one-file drop:
 
 | What | Where | Note |
 |---|---|---|
-| WhatsApp number | `js/data.js` → `SITE.contact.whatsapp` | Currently `+923000000000` placeholder — **replace** |
-| Phone number | `js/data.js` → `SITE.contact.phone` | **Replace** |
-| Email | `js/data.js` → `SITE.contact.email` | **Replace** |
-| Office address | `js/data.js` → `SITE.contact.office` | Update when chamber address is confirmed |
-| Hours | `js/data.js` → `SITE.contact.hours` | Update as you like |
-| Portrait photo | `assets/img/portrait.jpg` | Save his photo from LinkedIn (right-click → save) with that exact filename, portrait ratio ~4:5 (720×900 or larger). The elegant monogram placeholder shows until you drop it in. |
-| Domain | `index.html` (canonical + og:url), `sitemap.xml`, `robots.txt` | Currently the placeholder `naseeruddinshah.pk` — search-and-replace with the real domain |
+| WhatsApp number | `JS/data.js` → `SITE.contact.whatsapp` | Configured as `+923339552292`; verify before launch |
+| Phone number | `JS/data.js` → `SITE.contact.phone` | Configured as `+923339552292`; verify before launch |
+| Email | `JS/data.js` → `SITE.contact.email` | Configured as `naseeruddin143@yahoo.com`; verify before launch |
+| Office address | `JS/data.js` → `SITE.contact.office` | Configured as C-3 Rehman Plaza, Khyber Bazar, Peshawar |
+| Hours | `JS/data.js` → `SITE.contact.hours` | Configured as Mon–Sat, consultation by appointment |
+| Portrait photo | `assets/img/portrait.jpg` | Current portrait is wired in; replace it with an approved 4:5 image if needed |
+| Domain | `index.html` (canonical + OG/schema URLs), `sitemap.xml`, `robots.txt` | Production domain: `advocatenaseer.vercel.app`; update all URLs if a custom domain is connected |
 | OG share image | `assets/img/og-cover.jpg` | Generated during QA; regenerate or replace any 1200×630 image |
-| Availability status | `js/data.js` → `SITE.status` | Text appears in the nav & drawer badge |
+| Availability status | `JS/data.js` → `SITE.status` | Text appears in the nav & drawer badge |
 
 Facebook/LinkedIn block automated photo downloads, which is why the portrait is a
 drop-in slot rather than a fetched image.
 
-## Content lives in `js/data.js`
+## Content lives in `JS/data.js`
 
 Practice areas, timeline, news, FAQs and booking options are **data, not markup**.
 Edit `data.js` and the site re-renders — no HTML changes needed. All strings there
@@ -76,9 +77,10 @@ rather than translucency.
 - 3-step consultation booking drawer → WhatsApp handoff (works today, no backend needed)
 - Direct WhatsApp / Call floating buttons + contact channels
 - Focus-trapped drawers, keyboard support, `prefers-reduced-motion` respected
-- SEO: Attorney/LegalService/Person/FAQPage JSON-LD, OpenGraph, Twitter cards,
+- SEO/AEO: Attorney/LegalService/Person/FAQPage JSON-LD, OpenGraph, Twitter cards,
   robots.txt, sitemap.xml, semantic HTML
-- Responsive 360 px → 4K, safe-area aware, print stylesheet
+- Installable PWA with Android/iOS app icons, an app manifest, and an offline-cached site shell
+- Responsive 320 px → 4K, safe-area aware, print stylesheet
 
 ## Roadmap (where this is heading)
 
@@ -96,10 +98,13 @@ the chambers — its content is already data-driven, so the same `SITE` schema p
 
 ```
 index.html        — full page, schema.org JSON-LD, master seal SVG
-css/style.css     — dual-theme design system (tokens → components → media queries)
-js/data.js        — ⚠ content + contact config (edit here)
-js/app.js         — engine: theme, 3D, renderers, drawers, booking, WhatsApp handoff
-assets/favicon.svg, assets/img/  (drop portrait.jpg here)
+CSS/style.css     — dual-theme design system (tokens → components → media queries)
+CSS/responsive-hardening.css — device-specific responsive overrides
+JS/data.js        — content + contact config (edit here)
+JS/app.js         — engine: theme, 3D, renderers, drawers, booking, WhatsApp handoff
+JS/pwa.js         — secure-context service-worker registration
+sw.js · manifest.json · vercel.json
+assets/favicon.svg, assets/icons/, assets/img/
 robots.txt · sitemap.xml
 ```
 

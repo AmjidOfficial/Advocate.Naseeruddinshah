@@ -90,6 +90,7 @@ a, button, input, select, textarea, summary { touch-action: manipulation; }
 
 /* Match the actual components used by this site. */
 @media (max-width: 760px) {
+  .timeline { padding-left: 0; }
   .steps-mini {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -124,9 +125,20 @@ a, button, input, select, textarea, summary { touch-action: manipulation; }
   .book-foot { gap: .5rem; }
   .book-foot .btn { min-width: 0; flex: 1 1 0; }
 }
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   .steps-mini { gap: .35rem !important; }
-  .steps-mini .step { font-size: .78rem; }
+  .steps-mini { grid-template-columns: minmax(0, 1fr) !important; }
+  .steps-mini .step {
+    align-items: center;
+    flex-direction: row;
+    gap: .65rem;
+    padding: .65rem .75rem;
+    font-size: .78rem;
+    overflow-wrap: normal;
+  }
   .steps-mini .step-n { font-size: .72rem; }
+}
+
+@media (max-width: 380px) {
   .fab-cluster { transform: scale(.92); transform-origin: bottom right; }
 }

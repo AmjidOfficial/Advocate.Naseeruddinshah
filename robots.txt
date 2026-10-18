@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://naseeruddinshah.pk/sitemap.xml
+Sitemap: https://advocatenaseer.vercel.app/sitemap.xml
