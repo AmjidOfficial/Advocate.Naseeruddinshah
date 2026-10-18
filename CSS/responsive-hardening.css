@@ -87,3 +87,46 @@ a, button, input, select, textarea, summary { touch-action: manipulation; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Match the actual components used by this site. */
+@media (max-width: 760px) {
+  .steps-mini {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: .5rem !important;
+    width: 100%;
+  }
+  .steps-mini .step { min-width: 0; padding: .75rem .55rem; overflow-wrap: anywhere; }
+  .fab-cluster {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  .fab { min-width: 44px; min-height: 44px; }
+  .contact-grid, .contact-layout, .contact-content, .contact-cards {
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-width: 0;
+  }
+  .channel, .channel-body { min-width: 0; }
+  .channel-body strong, .channel-body small { overflow-wrap: anywhere; }
+  .book-head { gap: .75rem; }
+  .booking-drawer {
+    inset-inline: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .book-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .35rem; }
+  .book-steps li { min-width: 0; text-align: center; overflow-wrap: anywhere; }
+  .book-foot { gap: .5rem; }
+  .book-foot .btn { min-width: 0; flex: 1 1 0; }
+}
+@media (max-width: 380px) {
+  .steps-mini { gap: .35rem !important; }
+  .steps-mini .step { font-size: .78rem; }
+  .steps-mini .step-n { font-size: .72rem; }
+  .fab-cluster { transform: scale(.92); transform-origin: bottom right; }
+}
