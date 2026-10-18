@@ -1,0 +1,89 @@
+/* Mobile-first production hardening for the Chambers website.
+   Kept separate so the core visual design remains easy to maintain. */
+:root { --mobile-gutter: clamp(16px, 4.5vw, 28px); }
+html { max-width: 100%; overflow-x: clip; scroll-padding-top: 6rem; }
+body { width: 100%; max-width: 100%; overflow-x: clip; }
+*, *::before, *::after { box-sizing: border-box; }
+img, video, canvas, iframe, svg { max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a, button, input, select, textarea, summary { touch-action: manipulation; }
+:focus-visible { outline: 2px solid var(--gold, #d4af37); outline-offset: 4px; }
+@media (max-width: 760px) {
+  html { scroll-padding-top: 5.5rem; }
+  body { font-size: 16px; }
+  main, section, footer, header { min-width: 0; }
+  .container, .section-inner, .wrap, .shell, .content-wrap {
+    width: min(100% - 2 * var(--mobile-gutter), 100%);
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  .site-header, .header-inner, .nav-inner, .navbar, .topbar {
+    max-width: 100%;
+  }
+  .site-header, header { padding-left: max(var(--mobile-gutter), env(safe-area-inset-left)); padding-right: max(var(--mobile-gutter), env(safe-area-inset-right)); }
+  h1 { font-size: clamp(2rem, 8.2vw, 3.4rem); line-height: 1.12; overflow-wrap: anywhere; }
+  h2 { font-size: clamp(1.55rem, 6vw, 2.4rem); line-height: 1.2; overflow-wrap: anywhere; }
+  h3 { overflow-wrap: anywhere; }
+  p, li, address, .muted, .section-copy { overflow-wrap: anywhere; }
+  .hero, .hero-inner, .hero-content, .hero-grid { min-width: 0; }
+  .hero { padding-top: clamp(2rem, 8vw, 4rem); }
+  .hero-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .hero-content, .hero-copy, .hero-text { width: 100%; max-width: 100%; }
+  .hero-portrait, .portrait-wrap, .hero-visual { max-width: min(78vw, 340px); margin-inline: auto; }
+  .section { padding-block: clamp(3rem, 10vw, 5rem); }
+  .section-heading { margin-bottom: 1.75rem; }
+  .stats-grid, .practice-grid, .service-grid, .card-grid, .footer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .timeline, .timeline-list { padding-left: 1.25rem; }
+  .timeline-card, .timeline-item, .practice-card, .service-card, .panel {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .timeline-card, .timeline-item { padding: clamp(1.1rem, 4.5vw, 1.5rem); }
+  .booking-steps, .booking-stepper, .stepper, .consultation-steps {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: .5rem !important;
+    width: 100%;
+  }
+  .booking-steps > *, .booking-stepper > *, .stepper > *, .consultation-steps > * {
+    min-width: 0;
+    padding: .75rem .55rem;
+    overflow-wrap: anywhere;
+  }
+  .booking-drawer, .booking-panel, .contact-panel, .consultation-panel {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  .booking-drawer input, .booking-drawer select, .booking-drawer textarea,
+  .booking-panel input, .booking-panel select, .booking-panel textarea,
+  form input, form select, form textarea {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    font-size: 16px;
+  }
+  .btn, .button, button.btn, .cta, .booking-open, .booking-trigger {
+    max-width: 100%;
+    min-height: 44px;
+    white-space: normal;
+  }
+  .floating-actions, .fab-group { right: max(12px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); }
+  .back-to-top, .to-top { left: max(12px, env(safe-area-inset-left)); bottom: max(16px, env(safe-area-inset-bottom)); }
+  .site-footer { padding-bottom: max(2rem, env(safe-area-inset-bottom)); }
+  table { display: block; width: 100%; overflow-x: auto; }
+}
+@media (max-width: 420px) {
+  :root { --mobile-gutter: 15px; }
+  .booking-steps, .booking-stepper, .stepper, .consultation-steps { gap: .35rem !important; }
+  .booking-steps > *, .booking-stepper > *, .stepper > *, .consultation-steps > * { font-size: .82rem; }
+  .brand, .brand-name, .site-title, .logo-title { min-width: 0; overflow-wrap: anywhere; }
+  .logo, .brand-mark { flex: 0 0 auto; }
+  .floating-actions a, .floating-actions button, .fab-group a, .fab-group button { min-width: 44px; min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
