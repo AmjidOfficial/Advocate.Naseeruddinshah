@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <g stroke="#D4AF37" stroke-linecap="round" stroke-linejoin="round" opacity=".07">
+    <circle cx="120" cy="120" r="111" stroke-width="3" stroke-dasharray="1 5"/>
+    <circle cx="120" cy="120" r="99" stroke-width="2"/>
+    <circle cx="120" cy="120" r="81" stroke-width="1.2"/>
+    <path d="M72 166c-9 7-15 17-17 30m113-30c9 7 15 17 17 30" stroke-width="1.5"/>
+    <path d="M65 177l-8-5m14 14-9-2m113-7 8-5m-14 14 9-2" stroke-width="2"/>
+    <path d="M93 159h20m14 0h20" stroke-width="1"/>
+  </g>
+  <g fill="#D4AF37" opacity=".07">
+    <path d="m120 53 3.2 8.3 8.9.4-6.9 5.6 2.4 8.6-7.6-4.9-7.6 4.9 2.4-8.6-6.9-5.6 8.9-.4z"/>
+    <text x="120" y="137" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="51" font-weight="700" letter-spacing="-2">NS</text>
+    <text x="120" y="163" text-anchor="middle" font-family="Noto Nastaliq Urdu, serif" font-size="18" direction="rtl">انصاف</text>
+    <text x="120" y="181" text-anchor="middle" font-family="Georgia, serif" font-size="7" letter-spacing="2">EST. 2006</text>
+  </g>
+</svg>

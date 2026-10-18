@@ -6,3 +6,15 @@ node_modules/
 Thumbs.db
 *.log
 npm-debug.log*
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+
+# Generated output and caches
+build/
+dist/
+coverage/
+.cache/
+*.tmp

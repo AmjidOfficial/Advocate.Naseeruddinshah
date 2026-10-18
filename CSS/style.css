@@ -45,7 +45,7 @@
   --font-display: "Cinzel", "Cinzel FB", Georgia, serif;
   --font-body:    "Manrope", "Manrope FB", "Segoe UI", system-ui, sans-serif;
   --font-mono:    "JetBrains Mono", "Courier New", monospace;
-  --font-urdu:    "Noto Nastaliq Urdu", "Urdu Typesetting", serif;
+  --font-urdu:    "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Arabic Typesetting", "Urdu Typesetting", "Segoe UI", Tahoma, serif;
 
   /* Motion */
   --ease-out:   cubic-bezier(.22, 1, .36, 1);
@@ -734,7 +734,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 
 .hero-eyebrow .urdu {
   font-size: 1.35rem;
-  line-height: 1;
+  line-height: 1.75;
   color: var(--gold-ink);
 }
 .hero-eyebrow .mono { font-size: .68rem; }
@@ -1087,6 +1087,12 @@ body.fonts-wait .hero-copy { opacity: 0; visibility: hidden; }
   border-block: 1px solid var(--line-soft);
 }
 [data-theme="dark"] .section-alt { background: rgba(11, 19, 43, .38); }
+#advocate {
+  background-image: url("../assets/img/seal-watermark.svg");
+  background-repeat: no-repeat;
+  background-position: right clamp(1rem, 8vw, 7rem) center;
+  background-size: clamp(12rem, 34vw, 24rem);
+}
 
 .section-head { margin-bottom: clamp(2.2rem, 5vw, 3.6rem); max-width: 720px; }
 .section-title {
@@ -1208,6 +1214,7 @@ body.fonts-wait .hero-copy { opacity: 0; visibility: hidden; }
 .g-item figcaption {
   position: absolute;
   inset: auto 0 0;
+  z-index: 2;
   padding: 1.6rem .9rem .75rem;
   font-size: .68rem;
   letter-spacing: .05em;
@@ -1451,6 +1458,7 @@ body.fonts-wait .hero-copy { opacity: 0; visibility: hidden; }
 }
 [data-theme="dark"] .tl-card { background: linear-gradient(160deg, var(--surface-2), var(--surface)); }
 [data-theme="light"] .tl-card { background: #FFFFFF; border-color: var(--line); }
+[data-theme="dark"] .tl-card { background-image: url("../assets/img/seal-watermark.svg"), linear-gradient(160deg, var(--surface-2), var(--surface)); }
 .tl-item:hover .tl-card { transform: translateY(-4px); border-color: var(--gold); }
 
 .tl-when {
@@ -2090,6 +2098,37 @@ a.channel:hover .channel-arrow { opacity: 1; transform: none; }
 
 @media (max-width: 760px) {
   :root { --header-height: 68px; }
+  .hero .hero-eyebrow {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: .65rem;
+    row-gap: .35rem;
+    max-width: 100%;
+  }
+  .hero .hero-eyebrow .urdu {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: start;
+    padding: .15rem .25rem .3rem;
+    margin-bottom: .1rem;
+    font-size: 1.45rem;
+    line-height: 1.75;
+  }
+  .hero .hero-eyebrow .eyebrow-rule {
+    grid-column: 1;
+    grid-row: 2;
+    width: clamp(1.5rem, 8vw, 2.5rem);
+  }
+  .hero .hero-eyebrow .mono {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+    font-size: clamp(.52rem, 2.35vw, .66rem);
+    letter-spacing: clamp(.06em, .35vw, .12em);
+    line-height: 1.55;
+    text-wrap: balance;
+  }
   body { font-size: 1rem; }
   .nav-shell { padding-inline: max(.75rem, env(safe-area-inset-left)); }
   .nav { min-height: 60px; }
@@ -2128,22 +2167,25 @@ a.channel:hover .channel-arrow { opacity: 1; transform: none; }
   .hero-stage {
     min-height: 0;
     display: grid;
-    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-    justify-items: stretch;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
     margin-top: .5rem;
     padding-block: 1.25rem;
   }
   .seal-stage {
+    position: absolute;
+    inset: 50% auto auto 50%;
     grid-column: 1;
     grid-row: 1;
-    width: min(100%, clamp(96px, 30vw, 120px));
-    margin: 0 auto;
-    opacity: .72;
+    width: clamp(180px, 58vw, 250px);
+    margin: 0;
+    opacity: .42;
+    transform: translate(-50%, -50%);
     pointer-events: none;
   }
   .portrait-arch {
     position: relative;
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
     z-index: 2;
     width: min(100%, clamp(150px, 48vw, 185px));
@@ -2152,6 +2194,16 @@ a.channel:hover .channel-arrow { opacity: 1; transform: none; }
 }
 
 @media (max-width: 420px) {
+  .hero .hero-eyebrow {
+    column-gap: .5rem;
+    row-gap: .25rem;
+    margin-bottom: 1.25rem;
+  }
+  .hero .hero-eyebrow .urdu { font-size: 1.35rem; }
+  .hero .hero-eyebrow .mono {
+    font-size: clamp(.48rem, 2.2vw, .56rem);
+    letter-spacing: .045em;
+  }
   .hero-title { font-size: clamp(1.8rem, 8vw, 2.15rem); }
   .roster-toggle { display: none; }
   .brand-text strong { font-size: .82rem; }

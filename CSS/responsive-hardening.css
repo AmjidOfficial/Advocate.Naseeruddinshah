@@ -27,7 +27,7 @@ a, button, input, select, textarea, summary { touch-action: manipulation; }
   h3 { overflow-wrap: anywhere; }
   p, li, address, .muted, .section-copy { overflow-wrap: anywhere; }
   .hero, .hero-inner, .hero-content, .hero-grid { min-width: 0; }
-  .hero { padding-top: clamp(2rem, 8vw, 4rem); }
+  .hero { padding-top: calc(var(--nav-h) + clamp(2.75rem, 9vw, 4rem)); }
   .hero-grid { grid-template-columns: minmax(0, 1fr) !important; }
   .hero-content, .hero-copy, .hero-text { width: 100%; max-width: 100%; }
   .hero-portrait, .portrait-wrap, .hero-visual { max-width: min(78vw, 340px); margin-inline: auto; }
