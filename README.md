@@ -48,6 +48,11 @@ Everything below lives in **`JS/data.js`** (top of the file) or is a one-file dr
 | OG share image | `assets/img/og-cover.jpg` | Generated during QA; regenerate or replace any 1200×630 image |
 | Availability status | `JS/data.js` → `SITE.status` | Text appears in the nav & drawer badge |
 
+## Developer contact
+
+The footer credits **Muhammad Amjid** and links to WhatsApp (`+923149198403`) and
+email (`amjid.psh@gmail.com`).
+
 Facebook/LinkedIn block automated photo downloads, which is why the portrait is a
 drop-in slot rather than a fetched image.
 

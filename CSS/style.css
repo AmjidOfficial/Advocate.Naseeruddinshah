@@ -1993,8 +1993,9 @@ a.channel:hover .channel-arrow { opacity: 1; transform: none; }
 .footer-brand span { font-size: .78rem; color: #9AA0AA; letter-spacing: .05em; }
 .footer-brand span:first-of-type { color: #F0D77B; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; }
 
-.footer-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.footer-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
 .footer-col { display: flex; flex-direction: column; gap: .55rem; }
+.footer-developer { font-size: .9rem; color: #B9BEC7; }
 .footer-col h4 {
   font-family: var(--font-mono);
   font-size: .64rem;
